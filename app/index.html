@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+  <body ng-app="app" ng-controller="AppCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container">
+      <div class="well">
+          <p>Version: {{version}}</p>
+          <p>DB: {{db}}</p>
+          <p>findById(1): {{id}}</p>
+          <p>findOne(0): {{findOne}}</p>
+      </div>
+      <div class="update">
+          <h2>Update a record</h2>
+          <form name="updateForm" ng-submit="updateRecord()" class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Update Name" ng-model="update.name" />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Update Age" ng-model="update.age" />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Update ID" ng-model="update.id" />
+                </div>
+                <button type="submit" class="btn btn-default">Update</button>
+          </form>
+      </div>
+      <div class="remove">
+        <h2>Remove a record by id</h2>
+        <form name="removeForm" ng-submit="removeRecord()" class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+            <div class="form-group">
+                <input class="form-control" type="number" placeholder="ID to remove" ng-model="remove.id" />
+            </div>
+            <button type="submit" class="btn btn-default">Remove</button>
+        </form>
+      </div>
+      <div class="container">
+        <h2>Store DB in localStorage</h2>
+        <button type="button" class="btn btn-default" ng-click="storeDB()">Store DB in localstorage</button>  
+      </div>
+    </div>
+
+
+    <script src="bower_components/angular/angular.js"></script>
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controller.js"></script>
+        <script src="scripts/ngDB.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
